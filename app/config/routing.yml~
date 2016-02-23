@@ -1,0 +1,7 @@
+star_store:
+    resource: "@StarStoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

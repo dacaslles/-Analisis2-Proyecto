@@ -1,0 +1,3 @@
+star_store_homepage:
+    path:     /
+    defaults: { _controller: StarStoreBundle:Default:index }
