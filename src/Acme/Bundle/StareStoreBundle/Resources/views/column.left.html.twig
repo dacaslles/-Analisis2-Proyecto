@@ -1,0 +1,45 @@
+<div id="column-left">
+    <div id="banner0" class="banner">
+      <div><a href="#"><img src="" alt="Logo" title="Logo" /></a></div>
+    </div>
+    <script type="text/javascript"><!--
+$(document).ready(function() {
+        $('#banner0 div:first-child').css('display', 'block');
+});
+
+var banner = function() {
+        $('#banner0').cycle({
+                before: function(current, next) {
+                        $(next).parent().height($(next).outerHeight());
+                }
+        });
+}
+
+setTimeout(banner, 2000);
+//--></script>
+    <div class="box">
+        <div class="box-heading-category">Info</div>
+        <div class="box-content">
+            <ul class="box-category">
+                <li><a href="">Acerda de</a></li>
+                <li><a href="">Mision</a></li>
+                <li><a href="">Vision</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-heading">Categorias</div>
+        <div class="box-content">
+            <ul class="box-category">
+                {#<?php
+                $consulta = "select id_categoriatienda,nombre,(select count(*) from tienda t where t.id_categoriatienda = ct.id_categoriatienda and t.estado = 1) as cantidad from categoriatienda ct";
+                $consultaSQL = select($consulta,$conexion);
+                while(($resultado = oci_fetch_array($consultaSQL)) != null){ ?>
+                <li><a href="http://localhost/MIA_Proyecto2/hometienda.php?id_tienda=<?php echo $resultado[0]; ?>"> <?php echo $resultado[1]." (".$resultado[2].")"?></a></li>    
+                <?php
+                }
+                ?>#}
+            </ul>
+        </div>
+    </div>
+</div>

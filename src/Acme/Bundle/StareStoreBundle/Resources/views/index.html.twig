@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+{% block header%}
+	{{ include('AcmeBundleStareStoreBundle:header.html.twig',{'titulo':'index'})}}
+{% endblock %}
+<body>
+<div class="wrap_body">
+<div class="wrap_body2">
+<div id="container">
+{% block menu %}
+	{{ include('AcmeBundleStareStoreBundle:menu.html.twig')}}
+{% endblock %}
+{% block categories%}
+	{{ include('AcmeBundleStareStoreBundle:categories.html.twig')}}
+{% endblock%}
+<div id="notification"></div>
+<div class="wrap_content">
+{% block columnleft%}
+	{{ include('AcmeBundleStareStoreBundle:column.left.html.twig')}}
+{% endblock%}
+{% block contenttop%}
+	{{ include('AcmeBundleStareStoreBundle:content.top.html.twig')}}
+{% endblock%}
+</div>
+{% block footer%}
+	{{ include('AcmeBundleStareStoreBundle:footer.html.twig')}}
+{% endblock%}
+</div>
+</div>
+</div>
+</body>
+</html>

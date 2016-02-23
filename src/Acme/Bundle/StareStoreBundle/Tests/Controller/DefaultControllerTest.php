@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\Bundle\BlogBundle\Tests\Controller;
+namespace Acme\Bundle\StareStoreBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

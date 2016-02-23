@@ -1,0 +1,4 @@
+services:
+#    acme_bundle_stare_store.example:
+#        class: Acme\Bundle\StareStoreBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

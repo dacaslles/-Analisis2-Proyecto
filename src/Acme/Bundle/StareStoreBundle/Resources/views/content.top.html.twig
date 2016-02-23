@@ -1,0 +1,31 @@
+<div id="content">
+        <div class="slideshow">
+            <!--        -------Aqui se cambian las imagenes del slider------------>
+            <div id="slideshow0" class="nivoSlider" style="width: 670px; height: 300px;">
+                <img src="<?php echo $resultado[0] ?>" alt="111" width="670" height="300"/>
+    <!--            <img src="image/data/111-670x300.png" alt="222" />
+                <img src="image/data/222-670x300.png" alt="333" />-->
+            </div>
+        </div>
+        <script type="text/javascript"><!--
+    $(document).ready(function() {
+                $('#slideshow0').nivoSlider();
+            });
+      --></script>
+        <div class="box">
+            <div class="box-heading2">Visitanos</div>
+            <div class="box-content2">
+                <div class="box-product">
+                    {#<?php
+                    $consultaSQL = select("select ruta from imagen where id_comercial = 1", $conexion);
+                    while (($resultado = oci_fetch_array($consultaSQL)) != null) {
+                        ?>#}
+                        <div>
+                            <div class="image"><a href=""><img src="<?php echo $resultado[0] ?>" alt="MacBook" height="160" width="160"/></a></div>
+                        </div>
+                    {#<?php } ?>#}
+                </div>
+            </div>
+        </div>
+        <h1 style="display: none;">Your Store</h1>
+    </div>

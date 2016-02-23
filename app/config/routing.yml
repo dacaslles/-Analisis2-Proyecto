@@ -1,3 +1,8 @@
+acme_bundle_stare_store:
+    resource: "@AcmeBundleStareStoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 acme_bundle_blog:
     resource: "@AcmeBundleBlogBundle/Controller/"
     type:     annotation
@@ -6,3 +11,7 @@ acme_bundle_blog:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+index:
+    path: /index
+    defaults: {_controller: AcmeBundleStareStoreBundle:Index:index}

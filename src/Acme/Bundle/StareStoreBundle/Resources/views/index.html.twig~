@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+{% block header%}
+	{{ include('AcmeBundleStareStoreBundle:header.html.twig',{'titulo':'index'})}}
+{% endblock %}
+<body>
+<div class="wrap_body">
+<div class="wrap_body2">
+<div id="container">
+{#menu#}
+{#categorias#}
+<div id="notification"></div>
+<div class="wrap_content">
+{#main column left#}
+{#Cuerpo principal#}
+</div>
+{#footer#}
+</div>
+</div>
+</div>
+</body>
+</html>

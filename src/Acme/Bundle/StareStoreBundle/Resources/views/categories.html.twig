@@ -1,0 +1,28 @@
+<div id="menu">
+    <ul>
+        {#<?php
+        while(($resultado = oci_fetch_array($consultaSQL)) != null){ ?>
+        <li><a href="?categoria=<?php echo $resultado[0]; ?>"><?php echo $resultado[1]; ?></a>
+                <div>
+                    <ul>
+                        <?php
+                        $consultaSQL2 = select("select id_tienda,nombre from tienda where id_categoriatienda = $resultado[0] and estado = 1",$conexion);
+                        while(($resultado2 = oci_fetch_array($consultaSQL2)) != null){ ?>
+                        <li><a href="http://localhost/MIA_Proyecto2/hometienda.php?id_tienda=<?php echo $resultado2[0] ?>"><?php echo $resultado2[1]; ?></a></li>
+                        <?php
+                        } ?>
+                    </ul>
+                </div>
+        </li>
+        <?php 
+        }
+        ?>#}
+        <li><a href="">prueba</a>
+                <div>
+                    <ul>
+                        <li><a href="">prueba2</a></li>
+                    </ul>
+                </div>
+        </li>
+    </ul>
+</div>
