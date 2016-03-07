@@ -52,6 +52,6 @@ class RegisterController extends Controller
         $em->persist($usuario);
         $em->flush();
 
-        return new Response('<html><body>'.var_dump($usuario).'</body></html>');
+        return new Response('<html><body>Registro completado!</br> </body></html>');
     }
 }

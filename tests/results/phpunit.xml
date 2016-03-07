@@ -1,51 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Project Test Suite" tests="2" assertions="2" failures="1" errors="1" time="0.131479">
-    <testsuite name="Tests\AppBundle\Controller\DefaultControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/DefaultControllerTest.php" tests="1" assertions="1" failures="0" errors="1" time="0.075251">
-      <testcase name="testIndex" class="Tests\AppBundle\Controller\DefaultControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/DefaultControllerTest.php" line="9" assertions="1" time="0.075251">
-        <error type="PHPUnit_Framework_ExceptionWrapper">Tests\AppBundle\Controller\DefaultControllerTest::testIndex
-InvalidArgumentException: The current node list is empty.
-
-/var/www/html/Analisis2_Proyecto/vendor/symfony/symfony/src/Symfony/Component/DomCrawler/Crawler.php:547
-/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/DefaultControllerTest.php:16
-</error>
-      </testcase>
+  <testsuite name="Project Test Suite" tests="2" assertions="1" failures="1" errors="0" time="0.121659">
+    <testsuite name="Tests\AppBundle\Controller\DefaultControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/DefaultControllerTest.php" tests="1" assertions="0" failures="0" errors="0" time="0.064952">
+      <testcase name="testIndex" class="Tests\AppBundle\Controller\DefaultControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/DefaultControllerTest.php" line="9" assertions="0" time="0.064952"/>
     </testsuite>
-    <testsuite name="Acme\Bundle\StareStoreBundle\Tests\Controller\RegisterControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/RegisterControllerTest.php" tests="1" assertions="1" failures="1" errors="0" time="0.056228">
-      <testcase name="testRegisterUser" class="Acme\Bundle\StareStoreBundle\Tests\Controller\RegisterControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/RegisterControllerTest.php" line="9" assertions="1" time="0.056228">
+    <testsuite name="Acme\Bundle\StareStoreBundle\Tests\Controller\RegisterControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/RegisterControllerTest.php" tests="1" assertions="1" failures="1" errors="0" time="0.056707">
+      <testcase name="testRegisterUser" class="Acme\Bundle\StareStoreBundle\Tests\Controller\RegisterControllerTest" file="/var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/RegisterControllerTest.php" line="9" assertions="1" time="0.056707">
         <failure type="PHPUnit_Framework_ExpectationFailedException">Acme\Bundle\StareStoreBundle\Tests\Controller\RegisterControllerTest::testRegisterUser
-Failed asserting that '&lt;html&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;' contains "nombre".
+Failed asserting that '&lt;html&gt;&lt;body&gt;Registro completado!&lt;/br&gt; &lt;/body&gt;&lt;/html&gt;' contains "completados".
 
 /var/www/html/Analisis2_Proyecto/tests/AppBundle/Controller/RegisterControllerTest.php:16
 </failure>
-        <system-out>object(Acme\Bundle\StareStoreBundle\Entity\Usuario)#25 (9) {
-  ["id":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  int(9)
-  ["nombre":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  string(6) "nombre"
-  ["apellido":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  string(8) "apellido"
-  ["correo":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  string(17) "correo@correo.com"
-  ["telefono":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  string(8) "12345678"
-  ["movil":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  NULL
-  ["password":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  string(3) "123"
-  ["fechanacimiento":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  object(DateTime)#659 (3) {
-    ["date"]=&gt;
-    string(26) "1990-05-10 00:00:00.000000"
-    ["timezone_type"]=&gt;
-    int(3)
-    ["timezone"]=&gt;
-    string(15) "America/Chicago"
-  }
-  ["idTipousuario":"Acme\Bundle\StareStoreBundle\Entity\Usuario":private]=&gt;
-  int(3)
-}
-</system-out>
       </testcase>
     </testsuite>
   </testsuite>

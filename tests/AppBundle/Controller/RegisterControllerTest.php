@@ -13,6 +13,6 @@ class RegisterControllerTest extends WebTestCase
         $crawler = $client->request('POST', '/register/user',array('nombre'=>'nombre','apellido'=>'apellido','correo'=>'correo@correo.com',
             'telefono'=>'12345678','nacimiento'=>'5/10/1990','password'=>'123'));
 
-        $this->assertContains('nombre', $client->getResponse()->getContent());
+        $this->assertContains('completados', $client->getResponse()->getContent());
     }
 }
