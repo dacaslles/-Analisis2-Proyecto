@@ -16,6 +16,8 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
+      <parameter key="AcmeBundleBlogBundle">Acme\Bundle\BlogBundle\AcmeBundleBlogBundle</parameter>
+      <parameter key="AcmeBundleStareStoreBundle">Acme\Bundle\StareStoreBundle\AcmeBundleStareStoreBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -23,11 +25,12 @@
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
+    <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">127.0.0.1</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">symfony</parameter>
+    <parameter key="database_name">StarStores</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password">null</parameter>
+    <parameter key="database_password">david</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -1487,7 +1490,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>56cb7d94b45131.27184049</argument>
+            <argument>56ddc1552d0ac3.29661866</argument>
           </service>
         </argument>
       </argument>
@@ -1616,7 +1619,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>56cb7d94b45131.27184049</argument>
+            <argument>56ddc1552d0ac3.29661866</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -1842,6 +1845,10 @@
           </service>
         </argument>
       </call>
+      <call method="addGlobal">
+        <argument>base_url</argument>
+        <argument>http://localhost/Analisis2_Proyecto/web/app_dev.php</argument>
+      </call>
       <configurator method="configure">
         <service class="Symfony\Bundle\TwigBundle\DependencyInjection\Configurator\EnvironmentConfigurator" public="false">
           <argument>F j, Y H:i</argument>
@@ -1916,9 +1923,9 @@
         <argument key="driver">pdo_mysql</argument>
         <argument key="host">127.0.0.1</argument>
         <argument key="port">null</argument>
-        <argument key="dbname">symfony</argument>
+        <argument key="dbname">StarStores</argument>
         <argument key="user">root</argument>
-        <argument key="password">null</argument>
+        <argument key="password">david</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
@@ -2003,7 +2010,9 @@
       <argument type="service">
         <service class="Doctrine\ORM\Configuration" public="false">
           <call method="setEntityNamespaces">
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="AcmeBundleStareStoreBundle">Acme\Bundle\StareStoreBundle\Entity</argument>
+            </argument>
           </call>
           <call method="setMetadataCacheImpl">
             <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -2016,7 +2025,19 @@
           </call>
           <call method="setMetadataDriverImpl">
             <argument type="service">
-              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+              <service class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+                <call method="addDriver">
+                  <argument type="service">
+                    <service class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+                      <argument type="service" id="annotation_reader"/>
+                      <argument type="collection">
+                        <argument>/var/www/html/Analisis2_Proyecto/src/Acme/Bundle/StareStoreBundle/Entity</argument>
+                      </argument>
+                    </service>
+                  </argument>
+                  <argument>Acme\Bundle\StareStoreBundle\Entity</argument>
+                </call>
+              </service>
             </argument>
           </call>
           <call method="setProxyDir">
@@ -2401,6 +2422,14 @@
       <call method="addPath">
         <argument>/var/www/html/Analisis2_Proyecto/vendor/doctrine/doctrine-bundle/Resources/views</argument>
         <argument>Doctrine</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Analisis2_Proyecto/src/Acme/Bundle/BlogBundle/Resources/views</argument>
+        <argument>AcmeBundleBlog</argument>
+      </call>
+      <call method="addPath">
+        <argument>/var/www/html/Analisis2_Proyecto/src/Acme/Bundle/StareStoreBundle/Resources/views</argument>
+        <argument>AcmeBundleStareStore</argument>
       </call>
       <call method="addPath">
         <argument>/var/www/html/Analisis2_Proyecto/vendor/symfony/symfony/src/Symfony/Bundle/DebugBundle/Resources/views</argument>

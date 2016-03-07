@@ -86,4 +86,51 @@ class RegisterController extends Controller
 
         return new Response('<html><body>Registro completado!</br> </body></html>');
     }
+
+    /**
+    * Login del sitio web
+    * 
+    *
+    * @return html pagina para login
+    */
+    public function showloginAction()
+    {
+        $contenido = $this->renderView('AcmeBundleStareStoreBundle:login.html.twig');
+        return new Response($contenido);
+        
+    }
+
+    /**
+    * Proceso del login del sitio web
+    * 
+    * @param request $request Contiene el request POST 
+    *
+    * @return html pagina de inicio segun tipo de usuario
+    */
+    public function loginAction(Request $request)
+    {
+        $repository = $this->getDoctrine()->getRepository('AcmeBundleStareStoreBundle:Usuario');
+
+        $usuario = $repository->findOneByCorreo($request->request->get('correo'));
+
+        if ($usuario->getPassword() == $request->request->get('password')) {
+
+            if (!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['tipo'] = $usuario->getIdTipousuario();
+            $_SESSION['nombre'] = $usuario->getNombre();
+
+            return $this->redirectToRoute('index');
+
+        } else {
+            $body = '<html><body>usuario o password incorrecto</br>
+                    <a href="http://localhost/Analisis2_Proyecto/web/app_dev.php/login">regresar</a>
+                    </body></html>';
+            return new Response($body);
+        }
+
+        
+    }
 }

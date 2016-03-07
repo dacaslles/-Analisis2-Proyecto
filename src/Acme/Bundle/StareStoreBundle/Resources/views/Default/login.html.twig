@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+{% block header %}
+    {{ include('AcmeBundleStareStore:header.html.twig',{'titulo':'login'}) }}
+{% endblock %}
+<body>
+<div class="wrap_body">
+<div class="wrap_body2">
+<div id="container">
+{% block menu %}
+    {{ include('AcmeBundleStareStoreBundle:menu.html.twig')}}
+{% endblock %}
+{% block categories%}
+    {{ include('AcmeBundleStareStoreBundle:categories.html.twig')}}
+{% endblock%}
+<div id="notification"></div>
+<div class="wrap_content">
+{#<?php
+    include("template/common/column_right.php");
+?>#}
+
+    <div id="content">  
+        <div class="breadcrumb">
+            <a href="{{base_url}}/index">Home</a>
+            &raquo; <a href="{{base_url}}/account">Cuenta</a>
+            &raquo; <a href="{{base_url}}/register/user">Registro</a>
+        </div>
+        <h1>LOGIN</h1>
+        <p>Si ya tienes una cuenta, puedes entrar en la <a href="{{base_url}}/login">pagina login</a>.</p>
+        <div class="login-content">
+            <div class="left">
+                <h2>Nuevo usuario</h2>
+                <div class="content">
+                    <p><b>Crea una cuenta</b></p>
+                    <p>Creando una cuenta podras comprar cosas desde internet y mantener ordenes que hayas realizado anteriormente.</p>
+                    <a href="#" class="button">Continuar</a></div>
+            </div>
+            <div class="right">
+                <h2>Usuario existente</h2>
+                <form action="_login.php" method="post" enctype="multipart/form-data">
+                    <div class="content">
+                        <p>Yo soy un usuario existente</p>
+                        <b>Ingresa tu email</b><br />
+                        <input type="text" name="correo" value="" />
+                        <br />
+                        <br />
+                        <b>Ingresa tu password</b><br />
+                        <input type="password" name="password" value="" />
+                        <br />
+                        <a href="#">Olvidaste tu password</a><br />
+                        <br />
+                        <input type="submit" value="Ingresar" class="button" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>    
+
+</div>
+{% block footer %}
+    {{ include('AcmeBundleStareStoreBundle:footer.html.twig') }}
+{% endblock %}
+</div>
+</div>
+</div>
+</body>
+</html>

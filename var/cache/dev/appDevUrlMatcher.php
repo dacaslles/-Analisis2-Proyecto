@@ -100,6 +100,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // acme_starestore_default_index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'acme_starestore_default_index');
+            }
+
+            return array (  '_controller' => 'Acme\\Bundle\\StareStoreBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_starestore_default_index',);
+        }
+
+        // acme_blog_default_index
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'acme_blog_default_index');
+            }
+
+            return array (  '_controller' => 'Acme\\Bundle\\BlogBundle\\Controller\\DefaultController::indexAction',  '_route' => 'acme_blog_default_index',);
+        }
+
         // homepage
         if (rtrim($pathinfo, '/') === '') {
             if (substr($pathinfo, -1) !== '/') {
@@ -107,6 +125,37 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             }
 
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+        }
+
+        // index
+        if ($pathinfo === '/index') {
+            return array (  '_controller' => 'Acme\\Bundle\\StareStoreBundle\\Controller\\IndexController::indexAction',  '_route' => 'index',);
+        }
+
+        if (0 === strpos($pathinfo, '/register')) {
+            // register
+            if ($pathinfo === '/register') {
+                return array (  '_controller' => 'Acme\\Bundle\\StareStoreBundle\\Controller\\RegisterController::registerAction',  '_route' => 'register',);
+            }
+
+            // register-user
+            if ($pathinfo === '/register/user') {
+                return array (  '_controller' => 'Acme\\Bundle\\StareStoreBundle\\Controller\\RegisterController::userAction',  '_route' => 'register-user',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/login')) {
+            // login
+            if ($pathinfo === '/login') {
+                return array (  '_controller' => 'Acme\\Bundle\\StareStoreBundle\\Controller\\RegisterController::showloginAction',  '_route' => 'login',);
+            }
+
+            // login-user
+            if ($pathinfo === '/login/user') {
+                return array (  '_controller' => 'Acme\\Bundle\\StareStoreBundle\\Controller\\RegisterController::loginAction',  '_route' => 'login-user',);
+            }
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

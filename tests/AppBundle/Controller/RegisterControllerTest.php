@@ -15,4 +15,13 @@ class RegisterControllerTest extends WebTestCase
 
         $this->assertContains('completado', $client->getResponse()->getContent());
     }
+
+    public function testLogin()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('POST', '/login/user',array('correo'=>'correo@correo.com','password'=>'123'));
+
+        $this->assertContains('completado', $client->getResponse()->getContent());   
+    }
 }

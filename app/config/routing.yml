@@ -23,3 +23,11 @@ register:
 register-user:
     path: /register/user
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:user}
+
+login:
+    path: /login
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showlogin}
+
+login-user:
+    path: /login/user
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:login}

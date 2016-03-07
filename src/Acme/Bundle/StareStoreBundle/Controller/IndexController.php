@@ -38,8 +38,24 @@ class IndexController extends Controller
             session_start();
         }
 
+        
+            
+
         if (isset($_SESSION["tipo"])) {
+
+            $tipo = $_SESSION['tipo'];
+
+            if ($tipo == 1) {
+
+            } else if ($tipo == 2) {
+
+            } else {
+                $contenido = $this->renderView('AcmeBundleStareStoreBundle:home:home.user.html.twig'
+                    ,['name' => $_SESSION['nombre']]);
+                return new Response($contenido);
+            }
             return new Response('<html><body>Hello usuario!</body></html>');
+
         } else {
             $contenido = $this->renderView('AcmeBundleStareStoreBundle:index.html.twig');
             //return $this->render('AcmeBundleStareStoreBundle:index.html.twig');
