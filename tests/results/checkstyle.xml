@@ -1,33 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="2.5.1">
+<file name="/var/www/html/Analisis2_Proyecto/src/Acme/Bundle/StareStoreBundle/Controller/IndexController.php">
+ <error line="37" column="9" severity="error" message="Expected &quot;if (...) {\n&quot;; found &quot;if(...) {\n&quot;" source="PEAR.ControlStructures.ControlSignature"/>
+ <error line="44" column="89" severity="warning" message="Line exceeds 85 characters; contains 89 characters" source="Generic.Files.LineLength.TooLong"/>
+</file>
 <file name="/var/www/html/Analisis2_Proyecto/src/Acme/Bundle/StareStoreBundle/Controller/RegisterController.php">
- <error line="2" column="1" severity="error" message="Missing file doc comment" source="PEAR.Commenting.FileComment.Missing"/>
- <error line="14" column="1" severity="error" message="Missing class doc comment" source="PEAR.Commenting.ClassComment.Missing"/>
- <error line="16" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
- <error line="16" column="2" severity="error" message="Line indented incorrectly; expected 4 spaces, found 1" source="PEAR.WhiteSpace.ScopeIndent.IncorrectExact"/>
- <error line="16" column="9" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
- <error line="17" column="5" severity="error" message="Opening brace indented incorrectly; expected 1 spaces, found 4" source="PEAR.Functions.FunctionDeclaration.BraceIndent"/>
- <error line="18" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
- <error line="18" column="6" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 5" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="19" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
- <error line="19" column="3" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 2" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="20" column="5" severity="error" message="Closing brace indented incorrectly; expected 1 spaces, found 4" source="PEAR.WhiteSpace.ScopeClosingBrace.Indent"/>
- <error line="22" column="12" severity="error" message="Missing function doc comment" source="PEAR.Commenting.FunctionComment.Missing"/>
- <error line="24" column="1" severity="error" message="Spaces must be used to indent lines; tabs are not allowed" source="Generic.WhiteSpace.DisallowTabIndent.TabsUsed"/>
- <error line="24" column="6" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 5" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="26" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 5" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="27" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="28" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="29" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="30" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="31" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="32" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="33" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="35" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 5" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="37" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 5" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="38" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 6" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="39" column="1" severity="error" message="Line indented incorrectly; expected at least 8 spaces, found 5" source="PEAR.WhiteSpace.ScopeIndent.Incorrect"/>
- <error line="47" column="90" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
+ <error line="43" column="88" severity="warning" message="Line exceeds 85 characters; contains 88 characters" source="Generic.Files.LineLength.TooLong"/>
+ <error line="79" column="90" severity="warning" message="Line exceeds 85 characters; contains 90 characters" source="Generic.Files.LineLength.TooLong"/>
 </file>
 </checkstyle>
 
