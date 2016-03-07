@@ -3,7 +3,7 @@
 
     <target name="prueba_registro_usuario">
         <exec dir="${basedir}" executable="phpunit">
-            <arg value="test/AppBundle/ControllerRegisterController.php"></arg>
+            <arg value="test/AppBundle/Controller/RegisterController.php"></arg>
         </exec>
     </target>   
 </project>
