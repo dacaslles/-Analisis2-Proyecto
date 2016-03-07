@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<project name="Analisis2_Proyecto" basedir="." default="prueba_registro_usuario">
-
-    <target name="prueba_registro_usuario">
-        <exec dir="${basedir}/test/AppBundle/Controller" executable="phpunit">
-            <arg value="RegisterController.php"></arg>
-        </exec>
-    </target>   
-</project>
