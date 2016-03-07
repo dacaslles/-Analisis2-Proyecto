@@ -22,6 +22,16 @@ class RegisterControllerTest extends WebTestCase
 
         $crawler = $client->request('POST', '/login/user',array('correo'=>'correo@correo.com','password'=>'123'));
 
-        $this->assertContains('completado', $client->getResponse()->getContent());   
+        $this->assertContains('Bienvenido', $client->getResponse()->getContent());   
+    }
+
+    public function testRegisterUserOut()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery(
+            'delete on usuario 
+            where id_usuario = (select  MAX(id_usuario) from usuario)'
+            );
+        $query->execute();
     }
 }
