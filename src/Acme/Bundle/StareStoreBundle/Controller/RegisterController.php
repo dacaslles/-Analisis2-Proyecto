@@ -53,23 +53,6 @@ class RegisterController extends Controller
     */
     public function userAction(Request $request)
     {
-        /*$usuario = new Usuario();
-        $datos = array("usuario" => "nuevo usuario") ;
-        $form = $this->createFormBuilder($datos)
-        ->add('nombre',TextType::class)
-        ->add('apellido',TextType::class)
-        ->add('correo',TextType::class)
-        ->add('telefono',TextType::class)
-        ->add('nacimiento',DateType::class)
-        ->add('password',PasswordType::class)
-        ->getForm();
-
-        $form->handleRequest($request);
-        /*
-        if($form->isSubmitted() && $form->isValid()){
-        return new Response('<html><body>Submitted!</body></html>');
-        }
-        */
         $usuario = new Usuario();
 
         $usuario->setNombre($request->request->get('nombre'));
