@@ -89,8 +89,7 @@ class RegisterController extends Controller
 
     /**
     * Login del sitio web
-    * 
-    *
+     *
     * @return html pagina para login
     */
     public function showloginAction()

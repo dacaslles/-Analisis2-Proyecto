@@ -50,8 +50,9 @@ class IndexController extends Controller
             } else if ($tipo == 2) {
 
             } else {
-                $contenido = $this->renderView('AcmeBundleStareStoreBundle:home:home.user.html.twig'
-                    ,['name' => $_SESSION['nombre']]);
+                $contenido = $this->renderView(
+                    'AcmeBundleStareStoreBundle:home:home.user.html.twig', ['name' => $_SESSION['nombre']]
+                );
                 return new Response($contenido);
             }
             return new Response('<html><body>Hello usuario!</body></html>');
