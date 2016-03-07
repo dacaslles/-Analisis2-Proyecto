@@ -34,7 +34,7 @@ class IndexController extends Controller
     */
     public function indexAction()
     {
-        if(!isset($_SESSION)) {
+        if (!isset($_SESSION)) {
             session_start();
         }
 
