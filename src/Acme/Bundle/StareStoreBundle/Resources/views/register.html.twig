@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+{% block header %}
+    {{ include('AcmeBundleStareStoreBundle:header.html.twig',{'titulo':'registro'})}}
+{% endblock %}
+?>
+<body>
+<div class="wrap_body">
+<div class="wrap_body2">
+<div id="container">
+{% block menu %}
+    {{ include('AcmeBundleStareStoreBundle:menu.html.twig')}}
+{% endblock %}
+<div id="notification"></div>
+<div class="wrap_content">
+{#<?php
+    include("template/common/column_right.php");
+?>#}
+
+    <div id="content">  
+        <div class="breadcrumb">
+            <a href="http://zerocart.zz.mu/zmaxcart/index.php?route=common/home">Home</a>
+            &raquo; <a href="http://zerocart.zz.mu/zmaxcart/index.php?route=account/account">Cuenta</a>
+            &raquo; <a href="http://zerocart.zz.mu/zmaxcart/index.php?route=account/register">Registro</a>
+        </div>
+        <h1>LOGIN</h1>
+        <p>Si ya tienes una cuenta, puedes <a href="http://localhost/login.php">loguearte aqui</a>.</p>
+        <form action="http://localhost/Analisis2_Proyecto/web/app_dev.php/register/user" method="post" enctype="multipart/form-data">
+            <h2>Tus Datos Personales</h2>
+            <div class="content">
+                <table class="form">
+                    <tr>
+                        <td><span class="required">*</span> Nombre:</td>
+                        <td><input type="text" name="nombre" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Apellido:</td>
+                        <td><input type="text" name="apellido" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Correo:</td>
+                        <td><input type="text" name="correo" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Telefono:</td>
+                        <td><input type="text" name="telefono" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Fecha Nacimiento:</td>
+                        <td><input type="date" name="nacimiento" value="" /></td>
+                    </tr>
+                </table>
+            </div>
+            <h2>Tu Password</h2>
+            <div class="content">
+                <table class="form">
+                    <tr>
+                        <td><span class="required">*</span> Password:</td>
+                        <td><input type="password" name="password" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Confirmar Password:</td>
+                        <td><input type="password" name="confirm" value="" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="buttons">
+                <div class="right">He leido y estoy de acuerdo con los <a class="colorbox" href="#" alt="Privacy Policy"><b>Terminos y condiciones</b></a>                <input type="checkbox" name="agree" value="1" />
+                    <input type="submit" value="Continuar" class="button" />
+                </div>
+            </div>
+        </form>
+    </div>    
+    
+</div>
+{% block footer%}
+    {{ include('AcmeBundleStareStoreBundle:footer.html.twig')}}
+{% endblock%}
+</div>
+</div>
+</div>
+</body>
+</html>

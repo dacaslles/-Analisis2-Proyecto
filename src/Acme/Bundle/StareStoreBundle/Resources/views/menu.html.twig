@@ -20,15 +20,15 @@
     <input type="text" name="search" placeholder="Buscar" value="" />
   </div>
 <!-------------------------------- frase de bienvenida ------------------------->
-  {#<div id="welcome">
-      <?php if($nombre != null) {?>
+  <div id="welcome">
+      {#<?php if($nombre != null) {?>
       Bienvenido <?php echo $nombre ?>!!!
-      <?php } else { ?>
+      <?php } else { ?>#}
      Bienvenido visitante puedes <a href="http://localhost/MIA_Proyecto2/login.php">entrar</a> o <a href="http://localhost/MIA_Proyecto2/register.php">crear una cuenta</a>.      
-      <?php } ?>
-  </div>#}
+      {#<?php } ?>#}
+  </div>
 <!--  --------------------------------- menu superior -------------------------------------->
-  <div class="links">
+  {#<div class="links">#}
       {#<?php if($tipousuario == 3){ ?>
       <a href="http://localhost/MIA_Proyecto2/index.php">Home</a>
       <a href="#" id="wishlist-total">wish list(0)</a>
@@ -43,13 +43,13 @@
       <a href="http://localhost/MIA_Proyecto2/registercategoria.php">Categoria</a>
       <a href="_logout.php">Salir</a>
       <?php } else if($tipousuario == 2) {?>#}
-      <a href="http://localhost/MIA_Proyecto2/index.php">Home</a>
+      {#<a href="http://localhost/MIA_Proyecto2/index.php">Home</a>
       <a href="#">Tienda</a>
       <a href="http://localhost/MIA_Proyecto2/registerProducto.php">Producto</a>
       <a href="http://localhost/MIA_Proyecto2/registercategoriaproducto.php">Categoria</a>
       <a href="#">Mi cuenta</a>
-      <a href="_logout.php">Salir</a>
+      <a href="_logout.php">Salir</a>#}
       {#<?php } ?>#}
-  </div>
+  {#</div>#}
 </div>
 </div><!--end wrap_header-->

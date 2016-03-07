@@ -15,3 +15,11 @@ app:
 index:
     path: /index
     defaults: {_controller: AcmeBundleStareStoreBundle:Index:index}
+
+register:
+    path: /register
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:register}
+
+register-user:
+    path: /register/user
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:user}
