@@ -27,11 +27,14 @@ class RegisterControllerTest extends WebTestCase
 
     public function testRegisterUserOut()
     {
-        $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery(
-            'delete on usuario 
-            where id_usuario = (select  MAX(id_usuario) from usuario)'
-            );
-        $query->execute();
+        $mysqli = new \mysqli('localhost','root','david','StarStores');
+
+        if ($mysqli->connect_errno) {
+            echo "Falló la conexión a MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+        }
+
+        if (!$mysqli->query('CALL delete_last_user()')) {
+            echo "Falló CALL: (" . $mysqli->errno . ") " . $mysqli->error;
+        }
     }
 }
