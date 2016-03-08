@@ -58,8 +58,9 @@ class RegisterController extends Controller
 
         $_SESSION['nombre'] = 'SuperAdmin';
 
-        $contenido = $this->renderView('AcmeBundleStareStoreBundle:register:register.owner.html.twig'
-            , ['name' => $_SESSION['nombre']]);
+        $contenido = $this->renderView(
+            'AcmeBundleStareStoreBundle:register:register.owner.html.twig', ['name' => $_SESSION['nombre']]
+        );
         return new Response($contenido);
     }    
 
@@ -115,9 +116,11 @@ class RegisterController extends Controller
         $em->persist($usuario);
         $em->flush();
 
-        return new Response('<html><body>Registro completado!</br> 
+        return new Response(
+            '<html><body>Registro completado!</br> 
                         <a href="http://localhost/Analisis2_Proyecto/web/app_dev.php/index">regresar</a>
-                        </body></html>');
+                        </body></html>'
+        );
     }
 
     
