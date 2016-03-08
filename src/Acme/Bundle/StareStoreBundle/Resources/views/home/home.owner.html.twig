@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 {% block header%}
-    {{ include('AcmeBundleStareStoreBundle:header.html.twig',{'titulo':'index'})}}
+    {{ include('AcmeBundleStareStoreBundle:header.html.twig',{'titulo':'home'})}}
 {% endblock %}
 <body>
 <div class="wrap_body">
 <div class="wrap_body2">
 <div id="container">
 {% block menu %}
-    {{ include('AcmeBundleStareStoreBundle:menu:menu.user.html.twig',{'name':name})}}
+    {{ include('AcmeBundleStareStoreBundle:menu:menu.owner.html.twig',{'name':name})}}
 {% endblock %}
 {% block categories %}
     {{include('AcmeBundleStareStoreBundle:categories.html.twig')}}
