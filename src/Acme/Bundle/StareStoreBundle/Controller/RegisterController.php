@@ -38,12 +38,32 @@ class RegisterController extends Controller
     *
     * @return html formulario de registro para usuario
     */
-    public function registerAction()
+    public function showUserAction()
     {
         $contenido = $this->renderView('AcmeBundleStareStoreBundle:register.html.twig');
         return new Response($contenido);
     }
 
+
+    /**
+    * Muestra la pagina de registro para los administradores
+    *
+    * @return html formulario de registro para un administrador
+    */
+    public function showOwnerAction()
+    {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        $_SESSION['nombre'] = 'SuperAdmin';
+
+        $contenido = $this->renderView('AcmeBundleStareStoreBundle:register:register.owner.html.twig'
+            , ['name' => $_SESSION['nombre']]);
+        return new Response($contenido);
+    }    
+
+    
     /**
     * Agrega un nuevo usuario a la BD
     * 
@@ -69,6 +89,38 @@ class RegisterController extends Controller
 
         return new Response('<html><body>Registro completado!</br> </body></html>');
     }
+
+
+    /**
+    * Agrega un nuevo administrador a la BD
+    * 
+    * @param request $request Contiene el request POST 
+    *
+    * @return html pagina de confirmacion
+    */
+    public function ownerAction(Request $request)
+    {
+        $usuario = new Usuario();
+
+        $usuario->setNombre($request->request->get('nombre'));
+        $usuario->setApellido($request->request->get('apellido'));
+        $usuario->setCorreo($request->request->get('correo'));
+        $usuario->setTelefono($request->request->get('telefono'));
+        $usuario->setMovil($request->request->get('movil'));
+        $usuario->setFechanacimiento(new \DateTime($request->request->get('nacimiento')));
+        $usuario->setPassword($request->request->get('password'));
+        $usuario->setIdTipousuario(2);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($usuario);
+        $em->flush();
+
+        return new Response('<html><body>Registro completado!</br> 
+                        <a href="http://localhost/Analisis2_Proyecto/web/app_dev.php/index">regresar</a>
+                        </body></html>');
+    }
+
+    
 
     /**
     * Login del sitio web
