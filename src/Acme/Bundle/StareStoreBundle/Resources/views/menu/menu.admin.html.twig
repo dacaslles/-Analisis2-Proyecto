@@ -1,0 +1,40 @@
+<div class="wrap_header">
+<div id="header">
+  <div id="logo"><a href="{{base_url}}/index.php"><img src="{{ asset('image/data/zMaxcart.png') }}" title="Tu tienda" alt="Tu tienda" /></a></div>
+  
+<!--  ---------------- carrito en el menu--------------------->
+  <div id="cart">
+      {#<div class="heading">
+          <h4>Carrito</h4>
+          <a><span id="cart-total">0 item(s) - $0.00</span></a>
+      </div>
+
+      <div class="content">
+          <div class="empty">Tu carrito esta vacio!</div>
+      </div>#}
+  </div>
+  
+<!--  ------------------ Buscar ---------------------------------------->
+  <div id="search">
+    <div class="button-search"></div>
+    <input type="text" name="search" placeholder="Buscar" value="" />
+  </div>
+<!-------------------------------- frase de bienvenida ------------------------->
+  <div id="welcome">
+      
+      Bienvenido {{name}}!!!
+      
+  </div>
+<!--  --------------------------------- menu superior -------------------------------------->
+  <div class="links">
+      
+      <a href="{{base_url}}/index.php">Home</a>
+      <a href="{{base_url}}/register-admin">SuperUsuario</a>
+      <a href="{{base_url}}/register-owner">Administrador</a>
+      <a href="{{base_url}}/register-store">Tienda</a>
+      <a href="{{base_url}}/register-category">Categoria</a>
+      <a href="{{base_url}}/logout">Salir</a>
+      
+  </div>
+</div>
+</div><!--end wrap_header-->

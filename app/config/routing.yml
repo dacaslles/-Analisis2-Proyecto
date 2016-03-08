@@ -16,13 +16,21 @@ index:
     path: /index
     defaults: {_controller: AcmeBundleStareStoreBundle:Index:index}
 
-register:
-    path: /register
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:register}
+show-register-user:
+    path: /register-user
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showUser}
+
+show-register-owner:
+    path: /register-owner
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showOwner}
 
 register-user:
     path: /register/user
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:user}
+
+register-owner:
+    path: /register/owner
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:owner}
 
 login:
     path: /login
