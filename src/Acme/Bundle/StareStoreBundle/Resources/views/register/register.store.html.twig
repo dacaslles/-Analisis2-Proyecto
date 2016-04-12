@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+{% block header %}
+    {{ include('AcmeBundleStareStoreBundle:header.html.twig',{'titulo':'Registro Tienda'})}}
+{% endblock %}
+<body>
+<div class="wrap_body">
+<div class="wrap_body2">
+<div id="container">
+{% block menu %}
+    {{ include('AcmeBundleStareStoreBundle:menu:menu.admin.html.twig',{'name':name})}}
+{% endblock %}
+{% block categories %}
+    {{include('AcmeBundleStareStoreBundle:categories.html.twig')}}
+{% endblock %}
+<div id="notification"></div>
+<div class="wrap_content">
+{#<?php
+    include("template/common/column_right.php");
+    ColumnRightMenu("tienda");
+?>#}
+
+    <div id="content">  
+        <div class="breadcrumb">
+            <a href="#">Home</a>
+            &raquo; <a href="#">Cuenta</a>
+            &raquo; <a href="#">Registro</a>
+        </div>
+        <h1>Registro de tienda</h1>
+        <form action="{{base_url}}/register/register-store" method="post" enctype="multipart/form-data">
+            <h2>Datos de la Tienda</h2>
+            <div class="content">
+                <table class="form">
+                    <tr>
+                        <td><span class="required">*</span> Nombre:</td>
+                        <td><input type="text" name="nombre" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Eslogan:</td>
+                        <td><input type="text" name="eslogan" value="" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Mision:</td>
+                        <td><textarea type="" name="mision" value=""></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Vision:</td>
+                        <td><textarea type="" name="vision" value=""></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Informacion:</td>
+                        <td><textarea type="" name="acercade" value=""></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Tipo:</td>
+                        <td><input type="radio" name="tipo" value="1">Kiosco
+                            <input type="radio" name="tipo" value="2">Tienda
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2>Imagenes</h2>
+            <div class="content">
+                <table class="form">
+                    <tr>
+                        <td><span class="required">*</span> Logo:</td>
+                        <td><input type="file" name="imagen[]" multiple/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Portada:</td>
+                        <td><input type="file" name="imagen[]" multiple/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <h2>Administracion</h2>
+            <div class="content">
+                <table class="form">
+                    <tr>
+                        <td><span class="required">*</span> Administrador:</td>
+                        <td><input type="text" name="administrador" value="" />
+                            {#<select name="administrador">
+                                <option value="0">Administradores...</option>
+                                <?php
+                                $consultaSQL = select("select id_usuario,nombre from usuario where id_tipousuario = 2",$conexion);
+                                while(($resultado = oci_fetch_array($consultaSQL)) != null){
+                                    echo "<option value = \"$resultado[0]\">$resultado[1]</option>";
+                                }
+                                ?>
+                            </select>#}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="required">*</span> Categoria:</td>
+                        <td><input type="text" name="administrador" value="" />
+                            {#<select name="categoria">
+                                <option value="0">Categorias...</option>
+                                <?php
+                                $consultaSQL = select("select id_categoriatienda,nombre from categoriatienda",$conexion);
+                                while(($resultado = oci_fetch_array($consultaSQL)) != null){
+                                    echo "<option value = \"$resultado[0]\">$resultado[1]</option>";
+                                }
+                                ?>
+                            </select>#}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="buttons">
+                <div class="right">
+                    <input type="submit" value="Continuar" class="button" />
+                </div>
+            </div>
+        </form>
+    </div>    
+    
+</div>
+{% block footer%}
+    {{ include('AcmeBundleStareStoreBundle:footer.html.twig')}}
+{% endblock%}
+</div>
+</div>
+</div>
+</body>
+</html>

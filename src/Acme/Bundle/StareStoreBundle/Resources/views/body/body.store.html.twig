@@ -1,0 +1,23 @@
+<div class="wrap-content">
+  <div class="container">
+    <div class="row">
+      
+      {%block columnleft%}
+        {{ include('AcmeBundleStareStoreBundle:column_left:column.left.store.html.twig',{'store':store}) }}
+      {%endblock%}
+      
+      <div id="content" class="col-sm-9">
+      {%block slider%}
+        {{ include('AcmeBundleStareStoreBundle:body:slider.html.twig',{'store':store}) }}
+      {%endblock%}
+      <hr>
+      <h2>Categorias</h2>
+      <br>
+      {%block categorias%}
+        {{ include('AcmeBundleStareStoreBundle:body:category.product.html.twig',categoriesP) }}
+      {%endblock%}
+      </div>
+    
+    </div>
+  </div>
+</div>

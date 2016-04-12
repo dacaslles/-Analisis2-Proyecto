@@ -1,0 +1,11 @@
+<div class="dropdown-menu">
+  <div class="dropdown-inner">
+    <ul class="list-unstyled">
+        {% for store in stores %}
+            <li><a href="{{base_url}}/store/{{store.id}}">{{store.nombre}}</a></li>
+        {% endfor %}
+                
+    </ul>
+  </div>
+  {#<a href="#" class="see-all">See All Desktops</a>#}
+</div>

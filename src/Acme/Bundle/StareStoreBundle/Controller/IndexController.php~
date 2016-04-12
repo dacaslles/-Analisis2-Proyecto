@@ -21,4 +21,20 @@ class IndexController extends Controller
 			return new Response($contenido);
 		}
     }
+
+
+    public function index2Action($name)
+    {
+		if(!isset($_SESSION){
+			session_start();
+		}
+
+		if(isset($_SESSION["tipo"])){
+			return new Response('<html><body>Hello usuario!</body></html>');
+		} else {
+			$contenido = $this->renderView('AcmeBundleStareStoreBundle:index2.html.twig');
+//			return $this->render('AcmeBundleStareStoreBundle:index.html.twig');
+			return new Response($contenido);
+		}
+    }
 }

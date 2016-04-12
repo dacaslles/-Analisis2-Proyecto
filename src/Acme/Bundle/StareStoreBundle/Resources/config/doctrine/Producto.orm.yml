@@ -1,0 +1,42 @@
+Acme\Bundle\StareStoreBundle\Entity\Producto:
+    type: entity
+    table: Producto
+    repositoryClass: Acme\Bundle\StareStoreBundle\Repository\ProductoRepository
+    id:
+        id:
+            type: integer
+            column: id_producto
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        imagen:
+            type: string
+            length: '100'
+            nullable: true
+        descripcion:
+            type: string
+            length: '45'
+            nullable: true
+        precio:
+            type: float
+            nullable: true
+        habilitado:
+            type: integer
+            nullable: true
+        cantidad:
+            type: integer
+            nullable: true
+        idCategoriaproducto:
+            type: integer
+            nullable: true
+            column: id_categoriaproducto
+        idTienda:
+            type: integer
+            nullable: true
+            column: id_tienda
+        nombre:
+            type: string
+            length: '45'
+            nullable: true
+    lifecycleCallbacks: {  }

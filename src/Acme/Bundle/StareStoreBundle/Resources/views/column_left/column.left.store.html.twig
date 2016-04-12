@@ -1,0 +1,41 @@
+<column id="column-left" class="col-sm-3 hidden-xs">
+    
+    <div id="banner0" class="owl-carousel owl-theme" style="opacity: 1; display: block;">
+      <div class="owl-wrapper-outer">
+          <div class="owl-item" style="width: 149px;">
+            <div align="center">
+              <a href="{{base_url}}/store/{{store.id}}">
+                <img src="{{asset(store.logo)}}" alt="{{store.nombre}}" style="margin-left: 50;">
+              </a>
+            </div>
+          </div>
+      </div>
+    </div>
+    
+
+    <div class="list-group">
+      <a href="#" class="list-group-item active">Info</a>
+      <a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;- Mision</a>
+      <a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;- Vision</a>
+      <a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;- Acerca de</a>
+    </div>
+
+    <div class="list-group">
+      <a href="#" class="list-group-item active">Categorias</a>
+      <a href="#" class="list-group-item">&nbsp;&nbsp;&nbsp;- Laptops</a>
+    </div>
+
+    {#
+    <script type="text/javascript"><!--
+    $('#banner0').owlCarousel({
+        items: 6,
+        autoPlay: 3000,
+        singleItem: true,
+        navigation: false,
+        pagination: false,
+        transitionStyle: 'fade'
+    });
+    --></script>
+    #}
+
+</column>

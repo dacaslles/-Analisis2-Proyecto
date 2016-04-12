@@ -1,0 +1,40 @@
+<div class="row">
+{% for product in products %}
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    
+    
+    <div class="product-thumb">
+      <div class="image">
+        <a href=""><img src="{{asset(product.imagen)}}" alt="{{product.descripcion}}&quot;" title="{{product.descripcion}}&quot;" class="img-responsive"></a>
+      </div>
+      <div>
+        <div class="caption">
+          <h4><a href="{{base_url}}/product/{{product.id}}">{{product.descripcion}}</a></h4>
+          
+          <p>#</p>
+          <p class="price">
+            <span class="price-new">${{product.precio}}</span> 
+            {#
+            <span class="price-old">${{product.precio}}</span>
+            <span class="price-tax">Ex Tax: $90.00</span>
+            #}
+          </p>
+          
+        </div>
+        
+        <div class="button-group">
+          <button type="button" onclick="cart.add('42');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></button>
+          <button type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
+          <button type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
+        </div>
+        
+      </div>
+    </div>
+    
+    
+  </div>
+  {% endfor %}
+  <div class="clearfix visible-lg"></div>
+  <div class="clearfix visible-lg"></div>
+  <div class="clearfix visible-lg"></div>
+</div>

@@ -16,6 +16,10 @@ index:
     path: /index
     defaults: {_controller: AcmeBundleStareStoreBundle:Index:index}
 
+index2:
+    path: /index2
+    defaults: {_controller: AcmeBundleStareStoreBundle:Index:index2}
+
 show-register-user:
     path: /register-user
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:showUser}
@@ -23,6 +27,10 @@ show-register-user:
 show-register-owner:
     path: /register-owner
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:showOwner}
+
+show-register-store:
+    path: /register-store
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showStore}
 
 register-user:
     path: /register/user
@@ -39,3 +47,19 @@ login:
 login-user:
     path: /login/user
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:login}
+
+show-store:
+    path: /store/{id}
+    defaults: {_controller: AcmeBundleStareStoreBundle:Store:showMain}
+
+show-category:
+    path: /category/{id}
+    defaults: {_controller: AcmeBundleStareStoreBundle:Store:showCategory}
+
+show-product:
+    path: /product/{id}
+    defaults: {_controller: AcmeBundleStareStoreBundle:Store:showProduct}
+
+mail:
+    path: /mail
+    defaults: {_controller: AcmeBundleStareStoreBundle:Default:mail}

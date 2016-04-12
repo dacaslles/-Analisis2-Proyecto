@@ -1,0 +1,23 @@
+Acme\Bundle\StareStoreBundle\Entity\CategoriaTienda:
+    type: entity
+    table: CategoriaTienda
+    repositoryClass: Acme\Bundle\StareStoreBundle\Repository\CategoriaTiendaRepository
+    id:
+        id:
+            type: integer
+            column: id_categoriatienda
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            name: nombre
+            length: '45'
+            nullable: true
+        descripcion:
+            type: string
+            name: descripcion
+            length: '100'
+            nullable: true
+    lifecycleCallbacks: {  }

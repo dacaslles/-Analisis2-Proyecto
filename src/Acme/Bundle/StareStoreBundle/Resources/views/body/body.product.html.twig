@@ -1,0 +1,48 @@
+<div class="wrap-content">
+  <div class="container">
+    <div class="row">
+      
+      <div id="content" class="col-sm-12">
+      <h2>{{product.nombre}}</h2>
+      
+      <div class="row">
+        
+        <div class="col-sm-8">
+          <ul class="thumbnails">
+            <li><a class="thumbnail" href="#" title="iMac"><img src="{{asset(product.imagen)}}" title="{{product.nombre}}" alt="{{product.nombre}}"></a></li>
+          </ul>
+        </div>
+        
+        <div class="col-sm-4">
+          <div class="btn-group">
+            <button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="wishlist.add('41');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
+            <button type="button" data-toggle="tooltip" class="btn btn-default" title="" onclick="compare.add('41');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
+          </div>
+          <h1>{{product.nombre}}</h1>
+          <ul class="list-unstyled">
+            <li>Codigo: {{product.id}}</li>
+            {% if product.cantidad %}
+              <li>Disponibilidad: En Stock</li>
+            {% else %}
+              <li>Disponibilidad: Vacio</li>
+            {% endif %}
+          </ul>
+          <ul class="list-unstyled">
+            <li><h2>${{product.precio}}</h2></li>
+          </ul>
+          <div id="product">
+            <div class="form-group">
+              <label class="control-label" for="input-quantity">Cantidad</label>
+              <input type="text" name="quantity" value="1" size="2" id="input-quantity" class="form-control">
+              <input type="hidden" name="product_id" value="41">
+              <br>
+              <button type="button" id="button-cart" data-loading-text="Loading..." class="btn btn-primary btn-lg btn-block">Agregar al carrito</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    </div>
+  </div>
+</div>

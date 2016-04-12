@@ -1,0 +1,27 @@
+<div class="wrap-content">
+  <div class="container">
+    <div class="row">
+      
+      {%block columnleft%}
+        {{ include('AcmeBundleStareStoreBundle:column_left:column.left.store.html.twig') }}
+      {%endblock%}
+      
+      <div id="content" class="col-sm-9">
+      <h2>{{category.nombre}}</h2>
+      
+      <div class="row">
+        <div class="col-sm-2"><img src="{{asset(category.imagen)}}" alt="{{category.nombre}}" title="{{category.nombre}}" class="img-thumbnail">
+        </div>
+        <div class="col-sm-10">
+          <p>{{category.descripcion}}</p>
+        </div>
+      </div>
+      <hr>
+      {%block productos%}
+        {{ include('AcmeBundleStareStoreBundle:body:product.html.twig',products) }}
+      {%endblock%}
+      </div>
+    
+    </div>
+  </div>
+</div>

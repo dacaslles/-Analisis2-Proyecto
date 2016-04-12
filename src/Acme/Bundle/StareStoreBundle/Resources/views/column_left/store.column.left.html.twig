@@ -1,0 +1,44 @@
+{# -----column_left.StoreColumnLeft()------- #}
+
+<div id="column-left">
+    <div id="banner0" class="banner">
+        <div><a href=""><img src="{{asset('image/stores/iShop/logoishop.jpg')}}" alt="Logo" title="Logo" height="200" width="200" /></a></div>
+    </div>
+    <script type="text/javascript"><!--
+$(document).ready(function() {
+        $('#banner0 div:first-child').css('display', 'block');
+});
+
+var banner = function() {
+        $('#banner0').cycle({
+                before: function(current, next) {
+                        $(next).parent().height($(next).outerHeight());
+                }
+        });
+}
+
+setTimeout(banner, 2000);
+//--></script>
+    <div class="box">
+        <div class="box-heading-category">Info</div>
+        <div class="box-content">
+            <ul class="box-category">
+                <li><a href="">Acerda de</a></li>
+                <li><a href="">Mision</a></li>
+                <li><a href="">Vision</a></li>
+                <li><a href="">Comentarios</a>
+            </ul>
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-heading">Categorias</div>
+        <div class="box-content">
+            <ul class="box-category">
+                <li><a href="">iPad</a></li>    
+                <li><a href="">iPhone</a></li>    
+                <li><a href="">iPod</a></li>    
+                <li><a href="">Computadores</a></li>    
+            </ul>
+        </div>
+    </div>
+</div>

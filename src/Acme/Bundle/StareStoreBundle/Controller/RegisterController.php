@@ -63,6 +63,18 @@ class RegisterController extends Controller
         return new Response($contenido);
     }    
 
+    public function showStoreAction(Request $request)
+    {
+        if (!isset($_SESSION)) {
+            session_start();
+        }
+
+        $_SESSION['nombre'] = 'SuperAdmin';
+        
+        $contenido = $this->renderView('AcmeBundleStareStoreBundle:register:register.store.html.twig'
+            , ['name' => $_SESSION['nombre']]);
+        return new Response($contenido);
+    }
     
     /**
     * Agrega un nuevo usuario a la BD
@@ -120,7 +132,6 @@ class RegisterController extends Controller
                         </body></html>');
     }
 
-    
 
     /**
     * Login del sitio web

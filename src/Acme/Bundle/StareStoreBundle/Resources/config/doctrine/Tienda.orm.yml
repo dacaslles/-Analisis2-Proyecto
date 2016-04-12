@@ -1,0 +1,64 @@
+Acme\Bundle\StareStoreBundle\Entity\Tienda:
+    type: entity
+    table: Tienda
+    repositoryClass: Acme\Bundle\StareStoreBundle\Repository\TiendaRepository
+    id:
+        id:
+            type: integer
+            column: id_tienda
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            column: nombre
+            length: '45'
+            nullable: true
+        eslogan:
+            type: string
+            column: eslogan
+            length: '45'
+            nullable: true
+        mision:
+            type: string
+            column: mision
+            length: '200'
+            nullable: true
+        vision:
+            type: string
+            column: vision
+            length: '200'
+            nullable: true
+        acercade:
+            type: string
+            column: acercade
+            length: '200'
+            nullable: true
+        logo:
+            type: string
+            column: imagenlogo
+            length: '100'
+            nullable: true
+        portada:
+            type: string
+            column: imagenportada
+            length: '100'
+            nullable: true
+        tipo:
+            type: integer
+            column: tipotienda
+            nullable: true
+        estado:
+            type: integer
+            column: estado
+            nullable: true
+        idAdministrador:
+            type: integer
+            nullable: true
+            column: id_administrador
+        idCategoria:
+            type: integer
+            nullable: true
+            column: id_categoriatienda
+    lifecycleCallbacks: {  }

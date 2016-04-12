@@ -34,6 +34,23 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Recuperacion password')
+            ->setTo('dacaslles@gmail.com')
+            ->setFrom('starstore@mail.com')
+            ->setBody('tu password es: 123');
+        $this->get('mailer')->send($message);
         return $this->render('AcmeBundleStareStoreBundle:Default:index.html.twig');
+    }
+
+    public function mailAction()
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Recuperacion password')
+            ->setTo('albertcaslles@hotmail.com')
+            ->setFrom('starstore@mail.com')
+            ->setBody('tu password es: 123');
+        $this->get('mailer')->send($message);
+        return $this->render('AcmeBundleStareStoreBundle:Default:index.html.twig');   
     }
 }
