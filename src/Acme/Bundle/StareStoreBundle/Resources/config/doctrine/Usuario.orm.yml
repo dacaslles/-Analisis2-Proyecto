@@ -1,0 +1,44 @@
+Acme\Bundle\StareStoreBundle\Entity\Usuario:
+    type: entity
+    table: Usuario
+    repositoryClass: Acme\Bundle\StareStoreBundle\Repository\UsuarioRepository
+    id:
+        id:
+            type: integer
+            column: id_usuario
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nombre:
+            type: string
+            length: '45'
+            nullable: true
+        apellido:
+            type: string
+            length: '45'
+            nullable: true
+        correo:
+            type: string
+            length: '45'
+            nullable: true
+        telefono:
+            type: string
+            length: '45'
+            nullable: true
+        movil:
+            type: string
+            length: '45'
+            nullable: true
+        password:
+            type: string
+            length: '45'
+            nullable: true
+        fechanacimiento:
+            type: datetime
+            nullable: true
+        idTipoUsuario:
+            type: integer
+            nullable: false
+            column: id_TipoUsuario
+    lifecycleCallbacks: {  }

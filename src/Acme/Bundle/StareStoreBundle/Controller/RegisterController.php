@@ -13,12 +13,18 @@
 namespace Acme\Bundle\StareStoreBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Acme\Bundle\StareStoreBundle\Entity\Usuario;
+use Acme\Bundle\StareStoreBundle\Entity\Tienda;
+use Acme\Bundle\StareStoreBundle\Entity\Producto;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\RadioType;
 
 /**
 * Controlador register para el bundle StareStore
@@ -74,6 +80,42 @@ class RegisterController extends Controller
         $contenido = $this->renderView('AcmeBundleStareStoreBundle:register:register.store.html.twig'
             , ['name' => $_SESSION['nombre']]);
         return new Response($contenido);
+    }
+
+    public function showProductAction(Request $request)
+    {
+        $contenido = $this->renderView('AcmeBundleStareStoreBundle:register:register.product.html.twig');
+        return new Response($contenido);
+    }
+
+    public function productAction(Request $request)
+    {
+        $producto = new Producto();
+
+        $parametros = $request->request->all();
+
+        $producto->setId($parametros['codigo']);
+        $producto->setDescripcion($parametros['descripcion']);
+        $producto->setPrecio($parametros['precio']);
+        $producto->setHabilitado(1);
+        $producto->setCantidad($parametros['cantidad']);
+        $producto->setNombre($parametros['nombre']);
+        $producto->setIdTienda($parametros['tienda']);
+        $producto->setIdCategoriaproducto($parametros['categoria']);
+        $tienda = $this->getDoctrine()->getRepository('AcmeBundleStareStoreBundle:Tienda')
+            ->findOneById($parametros['categoria']);
+        $rutaImagen = '/var/www/html/Analisis2_Proyecto/web/image/stores/'.$tienda->getNombre();
+        $nombre = $parametros['codigo'].'jpg';
+        $producto->setImagen($rutaImagen.'/'.$nombre);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($producto);
+        $em->flush();
+
+        $request->files->get('imagen')->move($rutaImagen,$nombre);
+
+        return new Response('producto registrado');
+
     }
     
     /**
@@ -133,6 +175,40 @@ class RegisterController extends Controller
     }
 
 
+    public function storeAction(Request $request)
+    {
+
+        $tienda = new Tienda();
+        $parametros = $request->request->all();
+
+        $tienda->setNombre($parametros['nombre']);
+        $tienda->setEslogan($parametros['eslogan']);
+        $tienda->setMision($parametros['mision']);
+        $tienda->setVision($parametros['vision']);
+        $tienda->setAcercade($parametros['acercade']);
+        $rutaLogo = '/var/www/html/Analisis2_Proyecto/web/image/stores/'.$tienda->getNombre();
+        $nombreLogo = 'logo'.$tienda->getNombre().'jpg';
+        $tienda->setLogo($rutaLogo.'/'.$nombreLogo);
+        $rutaPortada = '/var/www/html/Analisis2_Proyecto/web/image/stores/'.$tienda->getNombre();
+        $nombrePortada = 'portada'.$tienda->getNombre().'jpg';
+        $tienda->setPortada($rutaPortada.'/'.$nombrePortada);
+        $tienda->setTipo(1);
+        $tienda->setEstado(1);
+        $tienda->setIdAdministrador($parametros['administrador']);
+        $tienda->setIdCategoria($parametros['categoria']);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($tienda);
+        $em->flush();
+
+        $request->files->get('logo')->move($rutaLogo,$nombreLogo);
+        $request->files->get('portada')->move($rutaPortada,$nombrePortada);
+
+        return new Response('tienda registrada ');
+
+    }
+
+
     /**
     * Login del sitio web
      *
@@ -167,7 +243,7 @@ class RegisterController extends Controller
             $_SESSION['tipo'] = $usuario->getIdTipousuario();
             $_SESSION['nombre'] = $usuario->getNombre();
 
-            return $this->redirectToRoute('index');
+            return $this->redirectToRoute('index2');
 
         } else {
             $body = '<html><body>usuario o password incorrecto</br>

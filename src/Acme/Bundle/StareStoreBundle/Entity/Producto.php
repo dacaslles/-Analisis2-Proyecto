@@ -8,7 +8,7 @@ namespace Acme\Bundle\StareStoreBundle\Entity;
 class Producto
 {
     /**
-     * @var int
+     * @var string
      */
     private $id;
 
@@ -61,6 +61,12 @@ class Producto
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**

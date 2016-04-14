@@ -32,6 +32,10 @@ show-register-store:
     path: /register-store
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:showStore}
 
+show-register-product:
+    path: /register-product
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showProduct}
+
 register-user:
     path: /register/user
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:user}
@@ -39,6 +43,14 @@ register-user:
 register-owner:
     path: /register/owner
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:owner}
+
+register-store:
+    path: /register/store
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:store}
+
+register-product:
+    path: /register/product
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:product}
 
 login:
     path: /login

@@ -95,6 +95,11 @@ class IndexController extends Controller
             $nombre = $_SESSION['nombre'];
 
             if ($tipo == 1) {
+                $contenido = $this->renderView(
+                    'AcmeBundleStareStoreBundle:home:home.admin.html.twig'
+                    , ['name' => $nombre]
+                    );
+                return new Response($contenido);                
 
             } else if ($tipo == 2) {
 
@@ -117,7 +122,6 @@ class IndexController extends Controller
 
         } else {
             $contenido = $this->renderView('AcmeBundleStareStoreBundle:index2.html.twig');
-            //return $this->render('AcmeBundleStareStoreBundle:index.html.twig');
             return new Response($contenido);
         }
     }

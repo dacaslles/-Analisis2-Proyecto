@@ -2,73 +2,61 @@
 
 namespace Acme\Bundle\StareStoreBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 /**
- * @ORM\Entity
- * @ORM\Table(name="Usuario")
+ * Usuario
  */
 class Usuario
 {
     /**
-     * @ORM\Id
-     * @ORM\Column(type="integer",name="id_usuario")
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=45)
      * @var string
      */
     private $nombre;
 
     /**
-     * @ORM\Column(type="string", length=45)
      * @var string
      */
     private $apellido;
 
     /**
-     * @ORM\Column(type="string", length=45)
      * @var string
      */
     private $correo;
 
     /**
-     * @ORM\Column(type="string", length=45)
      * @var string
      */
     private $telefono;
 
     /**
-     * @ORM\Column(type="string", length=45)
      * @var string
      */
     private $movil;
 
     /**
-     * @ORM\Column(type="string", length=45)
      * @var string
      */
     private $password;
 
     /**
-     * @ORM\Column(type="datetime")
      * @var \DateTime
      */
     private $fechanacimiento;
 
     /**
-     * @ORM\Column(type="integer")
      * @var int
      */
-    private $idTipousuario;
+    private $idTipoUsuario;
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -244,26 +232,27 @@ class Usuario
     }
 
     /**
-     * Set idTipousuario
+     * Set idTipoUsuario
      *
-     * @param integer $idTipousuario
+     * @param integer $idTipoUsuario
      *
      * @return Usuario
      */
-    public function setIdTipousuario($idTipousuario)
+    public function setIdTipoUsuario($idTipoUsuario)
     {
-        $this->idTipousuario = $idTipousuario;
+        $this->idTipoUsuario = $idTipoUsuario;
 
         return $this;
     }
 
     /**
-     * Get idTipousuario
+     * Get idTipoUsuario
      *
-     * @return integer
+     * @return int
      */
-    public function getIdTipousuario()
+    public function getIdTipoUsuario()
     {
-        return $this->idTipousuario;
+        return $this->idTipoUsuario;
     }
 }
+

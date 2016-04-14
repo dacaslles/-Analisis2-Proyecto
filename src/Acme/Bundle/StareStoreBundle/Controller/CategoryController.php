@@ -44,4 +44,15 @@ class CategoryController extends Controller
 
         return $this->render('AcmeBundleStareStoreBundle:container:store.category.html.twig',array('stores' => $tiendas));
     }
+
+
+    public function categoriasAction()
+    {
+        $categorias = $this->getDoctrine()
+            ->getRepository('AcmeBundleStareStoreBundle:CategoriaTienda')->findAll();
+
+        return $this->render('AcmeBundleStareStoreBundle:container:container.html.twig',
+                ['categories'=>$categorias]);   
+
+    }
 }

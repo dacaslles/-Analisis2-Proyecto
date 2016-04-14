@@ -8,7 +8,7 @@
 <div class="wrap_body2">
 <div id="container">
 {% block menu %}
-    {{ include('AcmeBundleStareStoreBundle:menu:menu.admin.html.twig',{'name':name})}}
+    {{ include('AcmeBundleStareStoreBundle:menu:menu.owner.html.twig',{'name':'admin'})}}
 {% endblock %}
 {% block categories %}
     {{include('AcmeBundleStareStoreBundle:categories.html.twig')}}
@@ -23,43 +23,37 @@
     <div id="content">  
         <div class="breadcrumb">
             <a href="#">Home</a>
-            &raquo; <a href="#">Cuenta</a>
+            &raquo; <a href="#">Producto</a>
             &raquo; <a href="#">Registro</a>
         </div>
-        <h1>Registro de tienda</h1>
-        <form action="{{base_url}}/register/store" method="post" enctype="multipart/form-data">
-            <h2>Datos de la Tienda</h2>
+        <h1>Registro de producto</h1>
+        <form action="{{base_url}}/register/product" method="post" enctype="multipart/form-data">
+            <h2>Datos del producto</h2>
             <div class="content">
                 <table class="form">
+                    <tr>
+                        <td><span class="required">*</span> Codigo:</td>
+                        <td><input type="text" name="codigo" value="" />
+                        </td>
+                    </tr>
                     <tr>
                         <td><span class="required">*</span> Nombre:</td>
                         <td><input type="text" name="nombre" value="" />
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="required">*</span> Eslogan:</td>
-                        <td><input type="text" name="eslogan" value="" />
+                        <td><span class="required">*</span> Descripcion:</td>
+                        <td><textarea type="" name="descripcion" value=""></textarea>
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="required">*</span> Mision:</td>
-                        <td><textarea type="" name="mision" value=""></textarea>
+                        <td><span class="required">*</span> Precio:</td>
+                        <td><input type="text" name="precio" value="" />
                         </td>
                     </tr>
                     <tr>
-                        <td><span class="required">*</span> Vision:</td>
-                        <td><textarea type="" name="vision" value=""></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="required">*</span> Informacion:</td>
-                        <td><textarea type="" name="acercade" value=""></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="required">*</span> Tipo:</td>
-                        <td><input type="radio" name="tipo" value="1">Kiosco
-                            <input type="radio" name="tipo" value="2">Tienda
+                        <td><span class="required">*</span> Cantidad:</td>
+                        <td><input type="text" name="cantidad" value="0" />
                         </td>
                     </tr>
                 </table>
@@ -68,13 +62,8 @@
             <div class="content">
                 <table class="form">
                     <tr>
-                        <td><span class="required">*</span> Logo:</td>
-                        <td><input type="file" name="logo" id="logo" multiple/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td><span class="required">*</span> Portada:</td>
-                        <td><input type="file" name="portada" multiple/>
+                        <td><span class="required">*</span> Item:</td>
+                        <td><input type="file" name="imagen" multiple/>
                         </td>
                     </tr>
                 </table>
@@ -83,31 +72,35 @@
             <div class="content">
                 <table class="form">
                     <tr>
-                        <td><span class="required">*</span> Administrador:</td>
-                        <td><input type="text" name="administrador" value="" />
-                            {#<select name="administrador">
-                                <option value="0">Administradores...</option>
+                        <td><span class="required">*</span> Tienda:</td>
+                        <td><input type="text" name="tienda" value="" />
+                            {#
+                            <select name="tienda">
+                                <option value="0">Tiendas...</option>
                                 <?php
-                                $consultaSQL = select("select id_usuario,nombre from usuario where id_tipousuario = 2",$conexion);
+                                $consultaSQL = select("select id_tienda,nombre from tienda where estado = 1 and id_administrador = $id_administrador",$conexion);
                                 while(($resultado = oci_fetch_array($consultaSQL)) != null){
                                     echo "<option value = \"$resultado[0]\">$resultado[1]</option>";
                                 }
                                 ?>
-                            </select>#}
+                            </select>
+                            #}
                         </td>
                     </tr>
                     <tr>
                         <td><span class="required">*</span> Categoria:</td>
                         <td><input type="text" name="categoria" value="" />
-                            {#<select name="categoria">
+                            {#
+                            <select name="categoria">
                                 <option value="0">Categorias...</option>
                                 <?php
-                                $consultaSQL = select("select id_categoriatienda,nombre from categoriatienda",$conexion);
+                                $consultaSQL = select("select id_categoriaproducto,nombre from categoriaproducto",$conexion);
                                 while(($resultado = oci_fetch_array($consultaSQL)) != null){
                                     echo "<option value = \"$resultado[0]\">$resultado[1]</option>";
                                 }
                                 ?>
-                            </select>#}
+                            </select>
+                            #}
                         </td>
                     </tr>
                 </table>

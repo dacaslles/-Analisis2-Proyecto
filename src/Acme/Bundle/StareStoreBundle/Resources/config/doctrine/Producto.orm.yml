@@ -4,7 +4,8 @@ Acme\Bundle\StareStoreBundle\Entity\Producto:
     repositoryClass: Acme\Bundle\StareStoreBundle\Repository\ProductoRepository
     id:
         id:
-            type: integer
+            type: string
+            length: '45'
             column: id_producto
             id: true
             generator:
