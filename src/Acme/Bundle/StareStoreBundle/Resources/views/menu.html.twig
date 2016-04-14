@@ -1,6 +1,6 @@
 <div class="wrap_header">
 <div id="header">
-  <div id="logo"><a href="http://localhost/MIA_Proyecto2/index.php"><img src="{{ asset('image/data/zMaxcart.png') }}" title="Tu tienda" alt="Tu tienda" /></a></div>
+  <div id="logo"><a href="{{base_url}}/index"><img src="{{ asset('image/data/zMaxcart.png') }}" title="Tu tienda" alt="Tu tienda" /></a></div>
   {#<?php if($tipousuario == 3){ ?>
 <!--  ---------------- carrito en el menu--------------------->
   <div id="cart">
@@ -48,7 +48,7 @@
       <a href="http://localhost/MIA_Proyecto2/registerProducto.php">Producto</a>
       <a href="http://localhost/MIA_Proyecto2/registercategoriaproducto.php">Categoria</a>
       <a href="#">Mi cuenta</a>
-      <a href="_logout.php">Salir</a>#}
+      <a href="{{base_url}}/logout">Salir</a>#}
       {#<?php } ?>#}
   {#</div>#}
 </div>

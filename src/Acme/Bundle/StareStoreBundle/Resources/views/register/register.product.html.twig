@@ -73,34 +73,14 @@
                 <table class="form">
                     <tr>
                         <td><span class="required">*</span> Tienda:</td>
-                        <td><input type="text" name="tienda" value="" />
-                            {#
-                            <select name="tienda">
-                                <option value="0">Tiendas...</option>
-                                <?php
-                                $consultaSQL = select("select id_tienda,nombre from tienda where estado = 1 and id_administrador = $id_administrador",$conexion);
-                                while(($resultado = oci_fetch_array($consultaSQL)) != null){
-                                    echo "<option value = \"$resultado[0]\">$resultado[1]</option>";
-                                }
-                                ?>
-                            </select>
-                            #}
+                        <td>
+                            {{render(controller('AcmeBundleStareStoreBundle:Category:stores'))}}
                         </td>
                     </tr>
                     <tr>
                         <td><span class="required">*</span> Categoria:</td>
-                        <td><input type="text" name="categoria" value="" />
-                            {#
-                            <select name="categoria">
-                                <option value="0">Categorias...</option>
-                                <?php
-                                $consultaSQL = select("select id_categoriaproducto,nombre from categoriaproducto",$conexion);
-                                while(($resultado = oci_fetch_array($consultaSQL)) != null){
-                                    echo "<option value = \"$resultado[0]\">$resultado[1]</option>";
-                                }
-                                ?>
-                            </select>
-                            #}
+                        <td>
+                            {{render(controller('AcmeBundleStareStoreBundle:Category:categories2'))}}
                         </td>
                     </tr>
                 </table>

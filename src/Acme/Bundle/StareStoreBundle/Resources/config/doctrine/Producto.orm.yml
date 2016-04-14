@@ -8,8 +8,6 @@ Acme\Bundle\StareStoreBundle\Entity\Producto:
             length: '45'
             column: id_producto
             id: true
-            generator:
-                strategy: AUTO
     fields:
         imagen:
             type: string

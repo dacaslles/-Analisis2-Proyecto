@@ -1,0 +1,7 @@
+<select name="administrador">
+    <option value="0">Administradores...</option>
+
+    {% for owner in owners %}
+    	<option value = "{{owner.id}}">{{owner.nombre}}</option>
+    {% endfor %}
+</select>

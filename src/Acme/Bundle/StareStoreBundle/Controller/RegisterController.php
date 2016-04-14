@@ -39,6 +39,8 @@ use Symfony\Component\Form\Extension\Core\Type\RadioType;
 */
 class RegisterController extends Controller
 {
+
+
     /**
     * Muestra la pagina de registro para el usuario
     *
@@ -90,7 +92,7 @@ class RegisterController extends Controller
 
     public function productAction(Request $request)
     {
-        $producto = new Producto();
+        $producto = new Producto($parametros['codigo']);
 
         $parametros = $request->request->all();
 
@@ -103,10 +105,10 @@ class RegisterController extends Controller
         $producto->setIdTienda($parametros['tienda']);
         $producto->setIdCategoriaproducto($parametros['categoria']);
         $tienda = $this->getDoctrine()->getRepository('AcmeBundleStareStoreBundle:Tienda')
-            ->findOneById($parametros['categoria']);
+            ->findOneById($parametros['tienda']);
         $rutaImagen = '/var/www/html/Analisis2_Proyecto/web/image/stores/'.$tienda->getNombre();
-        $nombre = $parametros['codigo'].'jpg';
-        $producto->setImagen($rutaImagen.'/'.$nombre);
+        $nombre = $parametros['codigo'].'.jpg';
+        $producto->setImagen('image/stores/'.$tienda->getNombre().'/'.$nombre);
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($producto);
@@ -170,7 +172,7 @@ class RegisterController extends Controller
         $em->flush();
 
         return new Response('<html><body>Registro completado!</br> 
-                        <a href="http://localhost/Analisis2_Proyecto/web/app_dev.php/index">regresar</a>
+                        <a href="http://localhost/Analisis2_Proyecto/web/app_dev.php/index2">regresar</a>
                         </body></html>');
     }
 
@@ -187,11 +189,11 @@ class RegisterController extends Controller
         $tienda->setVision($parametros['vision']);
         $tienda->setAcercade($parametros['acercade']);
         $rutaLogo = '/var/www/html/Analisis2_Proyecto/web/image/stores/'.$tienda->getNombre();
-        $nombreLogo = 'logo'.$tienda->getNombre().'jpg';
-        $tienda->setLogo($rutaLogo.'/'.$nombreLogo);
+        $nombreLogo = 'logo'.$tienda->getNombre().'.jpg';
+        $tienda->setLogo('image/stores/'.$tienda->getNombre().'/'.$nombreLogo);
         $rutaPortada = '/var/www/html/Analisis2_Proyecto/web/image/stores/'.$tienda->getNombre();
-        $nombrePortada = 'portada'.$tienda->getNombre().'jpg';
-        $tienda->setPortada($rutaPortada.'/'.$nombrePortada);
+        $nombrePortada = 'portada'.$tienda->getNombre().'.jpg';
+        $tienda->setPortada('image/stores/'.$tienda->getNombre().'/'.$nombrePortada);
         $tienda->setTipo(1);
         $tienda->setEstado(1);
         $tienda->setIdAdministrador($parametros['administrador']);
@@ -242,6 +244,7 @@ class RegisterController extends Controller
 
             $_SESSION['tipo'] = $usuario->getIdTipousuario();
             $_SESSION['nombre'] = $usuario->getNombre();
+            $_SESSION['id'] = $usuario->getId();
 
             return $this->redirectToRoute('index2');
 
@@ -253,5 +256,15 @@ class RegisterController extends Controller
         }
 
         
+    }
+
+    public function logoutAction(Request $request)
+    {
+        if(isset($_SESSION)){
+            session_destroy();
+            unset($_SESSION);
+         }
+
+        return $this->redirectToRoute('index2');
     }
 }

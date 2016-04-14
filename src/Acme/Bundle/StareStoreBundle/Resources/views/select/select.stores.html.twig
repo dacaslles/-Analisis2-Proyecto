@@ -1,0 +1,7 @@
+<select name="tienda">
+    <option value="0">Tiendas...</option>
+
+    {% for store in stores %}
+    	<option value = "{{store.id}}">{{store.nombre}}</option>
+    {% endfor %}
+</select>

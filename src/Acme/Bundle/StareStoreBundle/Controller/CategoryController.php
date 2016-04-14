@@ -55,4 +55,49 @@ class CategoryController extends Controller
                 ['categories'=>$categorias]);   
 
     }
+
+    public function ownersAction()
+    {
+        $propietarios = $this->getDoctrine()
+                ->getRepository('AcmeBundleStareStoreBundle:Usuario')
+                ->createQueryBuilder('o')
+                ->where('o.idTipoUsuario = 2')
+                ->orderBy('o.id','ASC')
+                ->getQuery()
+                ->getResult();
+
+        return $this->render('AcmeBundleStareStoreBundle:select:select.owners.html.twig',
+                ['owners'=>$propietarios]);
+    }
+
+    public function categoriesAction()
+    {
+        $categorias = $this->getDoctrine()
+            ->getRepository('AcmeBundleStareStoreBundle:CategoriaTienda')->findAll();
+
+        return $this->render('AcmeBundleStareStoreBundle:select:select.categories.stores.html.twig',
+                ['categories'=>$categorias]);
+    }
+
+    public function storesAction()
+    {
+        $tiendas = $this->getDoctrine()->getRepository('AcmeBundleStareStoreBundle:Tienda')
+                ->createQueryBuilder('t')
+                ->where('t.idAdministrador = :id')
+                ->setParameter('id',$_SESSION['id'])
+                ->orderBy('t.nombre','ASC')
+                ->getQuery()
+                ->getResult();
+        return $this->render('AcmeBundleStareStoreBundle:select:select.stores.html.twig',
+                ['stores'=>$tiendas]);
+    }
+
+    public function categories2Action()
+    {
+        $categorias = $this->getDoctrine()
+            ->getRepository('AcmeBundleStareStoreBundle:CategoriaProducto')->findAll();
+
+        return $this->render('AcmeBundleStareStoreBundle:select:select.categories.stores.html.twig',
+                ['categories'=>$categorias]);   
+    }
 }

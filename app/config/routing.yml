@@ -60,6 +60,10 @@ login-user:
     path: /login/user
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:login}
 
+logout:
+    path: /logout
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:logout}
+
 show-store:
     path: /store/{id}
     defaults: {_controller: AcmeBundleStareStoreBundle:Store:showMain}

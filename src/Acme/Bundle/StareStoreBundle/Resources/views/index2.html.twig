@@ -11,7 +11,7 @@
     {{ include('AcmeBundleStareStoreBundle:header:header.index.html.twig')}}
 {% endblock%}
 {% block container%}
-    {{ include('AcmeBundleStareStoreBundle:container:container.html.twig',categories)}}
+    {{ render(controller('AcmeBundleStareStoreBundle:Category:categorias')) }}
 {% endblock%}
 {% block body %}
     {{ include('AcmeBundleStareStoreBundle:body:body.index.html.twig')}}
