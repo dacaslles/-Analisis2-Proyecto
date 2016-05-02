@@ -1,0 +1,16 @@
+<tr>
+  <td class="text-center"> 
+    <a href=""><img src="{{asset(product.imagen)}}" alt="{{product.nombre}}" title="product.nombre" class="img-thumbnail" height="42" width="42"></a>
+  </td>
+  <td class="text-left">
+    <a href="">{{product.nombre}}</a>
+  </td>
+  <td class="text-left">
+    <div class="input-group btn-block" style="max-width: 200px;">
+      <input type="text" name="quantity-{{product.id}}" value="{{quantity}}" size="1" class="form-control">
+      <span class="input-group-btn">
+      <button type="submit" data-toggle="tooltip" title="" class="btn btn-primary" data-original-title="Update"><i class="fa fa-refresh"></i></button>
+      <button type="button" data-toggle="tooltip" title="" class="btn btn-danger" onclick="" data-original-title="Remove"><i class="fa fa-times-circle"></i></button></span></div></td>
+  <td class="text-right">${{product.precio}}</td>
+  <td class="text-right">${{product.precio*quantity}}</td>
+</tr>

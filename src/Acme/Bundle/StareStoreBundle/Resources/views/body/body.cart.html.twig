@@ -1,0 +1,55 @@
+<div class="wrap-content">
+  <div class="container">
+    <div class="row">                
+      <div id="content" class="col-sm-12">      
+        <h1>Carrito de compra</h1>
+        <form action="{{base_url}}/shop" method="post" enctype="multipart/form-data">
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <td class="text-center">Imagen</td>
+                <td class="text-left">Nombre</td>
+                <td class="text-left">Cantidad</td>
+                <td class="text-right">Precio unitario</td>
+                <td class="text-right">Total</td>
+              </tr>
+            </thead>
+            <tbody>
+              {% for detail in details %}
+              {{ render(controller('AcmeBundleStareStoreBundle:Shop:showRowCart',{'id':detail.iDProducto, 'cantidad':detail.cantidad})) }}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </form>
+            
+      <br>
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-8">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td class="text-right"><strong>Sub-Total:</strong></td>
+                <td class="text-right">${{cart.total}}</td>
+              </tr>
+              <tr>
+                <td class="text-right"><strong>VAT (20%):</strong></td>
+                <td class="text-right">${{cart.total*0.20}}</td>
+              </tr>
+              <tr>
+                <td class="text-right"><strong>Total:</strong></td>
+                <td class="text-right">${{cart.total + (cart.total*0.20)}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="buttons">
+        <div class="pull-left"><a href="http://zerocart.byethost9.com/zmaxcart/index.php?route=common/home" class="btn btn-default">Continue Shopping</a></div>
+        <div class="pull-right"><a href="{{base_url}}/shop" class="btn btn-primary">Checkout</a></div>
+      </div>
+      </div>
+    </div>
+</div>
+</div>

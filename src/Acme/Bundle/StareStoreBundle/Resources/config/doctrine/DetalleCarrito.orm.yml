@@ -1,0 +1,16 @@
+Acme\Bundle\StareStoreBundle\Entity\DetalleCarrito:
+    type: entity
+    table: DetalleCarrito
+    repositoryClass: Acme\Bundle\StareStoreBundle\Repository\DetalleCarritoRepository
+    id:
+        iDProducto:
+            type: integer
+            column: ID_Producto
+        iDCarrito:
+            type: integer
+            column: ID_Carrito
+    fields:
+        cantidad:
+            type: integer
+            column: Cantidad
+    lifecycleCallbacks: {  }

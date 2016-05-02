@@ -10,7 +10,7 @@
       <div>
         <div class="caption">
           <h4><a href="{{base_url}}/product/{{product.id}}">{{product.descripcion}}</a></h4>
-          
+          <input id="product-price-{{product.id}}" type="hidden" value="{{product.precio}}">
           <p>#</p>
           <p class="price">
             <span class="price-new">${{product.precio}}</span> 
@@ -23,9 +23,9 @@
         </div>
         
         <div class="button-group">
-          <button type="button" onclick="cart.add('42');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Add to Cart</span></button>
-          <button type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Add to Wish List"><i class="fa fa-heart"></i></button>
-          <button type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Compare this Product"><i class="fa fa-exchange"></i></button>
+          <button type="button" id="add-cart-button-{{product.id}}" data-original-title="Agregar al carrito" onclick="addCart({{product.id}})"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"></span></button>
+          <button type="button" data-toggle="tooltip" title="" onclick="wishlist.add('42');" data-original-title="Agregar a Wish List"><i class="fa fa-heart"></i></button>
+          <button type="button" data-toggle="tooltip" title="" onclick="compare.add('42');" data-original-title="Comparar este producto"><i class="fa fa-exchange"></i></button>
         </div>
         
       </div>

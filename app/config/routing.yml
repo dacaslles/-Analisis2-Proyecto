@@ -79,3 +79,17 @@ show-product:
 mail:
     path: /mail
     defaults: {_controller: AcmeBundleStareStoreBundle:Default:mail}
+
+add-to-cart:
+    path: /add-cart
+    defaults: {_controller: AcmeBundleStareStoreBundle:Shop:addCart}
+
+show-cart:
+    path: /cart
+    defaults: {_controller: AcmeBundleStareStoreBundle:Shop:showCart}
+shop:
+    path: /shop
+    defaults: {_controller: AcmeBundleStareStoreBundle:Shop:shop}
+button-cart:
+    path: /button-cart
+    defaults: {_controller: AcmeBundleStareStoreBundle:Shop:buttonCart}

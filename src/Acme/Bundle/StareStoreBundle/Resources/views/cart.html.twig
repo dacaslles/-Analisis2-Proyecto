@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+{% block head%}
+    {{ include('AcmeBundleStareStoreBundle:header2.html.twig',{'titulo':'producto'})}}
+{% endblock %}
+<body class="common-home">
+{% block top %}
+    {{ include('AcmeBundleStareStoreBundle:top:top.user.html.twig')}}
+{% endblock %}
+{% block header%}
+    {{ include('AcmeBundleStareStoreBundle:header:header.user.html.twig')}}
+{% endblock%}
+{% block container%}
+    {{ render(controller('AcmeBundleStareStoreBundle:Category:categorias')) }}
+{% endblock%}
+{% block body %}
+    {{ include('AcmeBundleStareStoreBundle:body:body.cart.html.twig')}}
+{% endblock %}
+{% block footer%}
+    {{ include('AcmeBundleStareStoreBundle:footer:footer.html.twig')}}
+{% endblock%}
+</body>
+</html>

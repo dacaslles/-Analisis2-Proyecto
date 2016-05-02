@@ -1,0 +1,18 @@
+Acme\Bundle\StareStoreBundle\Entity\Carrito:
+    type: entity
+    table: Carrito
+    repositoryClass: Acme\Bundle\StareStoreBundle\Repository\CarritoRepository
+    id:
+        id:
+            type: integer
+            column: id_carrito
+            id: true
+    fields:
+        total:
+            type: float
+            nullable: true
+            column: Total
+        iDUsuario:
+            type: integer
+            column: ID_Usuario
+    lifecycleCallbacks: {  }
