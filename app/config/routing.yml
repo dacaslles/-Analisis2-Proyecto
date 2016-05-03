@@ -12,6 +12,7 @@ app:
     resource: "@AppBundle/Controller/"
     type:     annotation
 
+
 index:
     path: /index
     defaults: {_controller: AcmeBundleStareStoreBundle:Index:index}
@@ -19,38 +20,6 @@ index:
 index2:
     path: /index2
     defaults: {_controller: AcmeBundleStareStoreBundle:Index:index2}
-
-show-register-user:
-    path: /register-user
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showUser}
-
-show-register-owner:
-    path: /register-owner
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showOwner}
-
-show-register-store:
-    path: /register-store
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showStore}
-
-show-register-product:
-    path: /register-product
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showProduct}
-
-register-user:
-    path: /register/user
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:user}
-
-register-owner:
-    path: /register/owner
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:owner}
-
-register-store:
-    path: /register/store
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:store}
-
-register-product:
-    path: /register/product
-    defaults: {_controller: AcmeBundleStareStoreBundle:Register:product}
 
 login:
     path: /login
@@ -63,6 +32,44 @@ login-user:
 logout:
     path: /logout
     defaults: {_controller: AcmeBundleStareStoreBundle:Register:logout}
+
+
+
+show-register-owner:
+    path: /register-owner
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showOwner}
+
+show-register-store:
+    path: /register-store
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showStore}
+
+register-owner:
+    path: /register/owner
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:owner}
+
+register-store:
+    path: /register/store
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:store}
+
+
+
+show-register-product:
+    path: /register-product
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showProduct}
+
+register-product:
+    path: /register/product
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:product}
+
+
+
+show-register-user:
+    path: /register-user
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:showUser}
+
+register-user:
+    path: /register/user
+    defaults: {_controller: AcmeBundleStareStoreBundle:Register:user}
 
 show-store:
     path: /store/{id}
@@ -87,9 +94,11 @@ add-to-cart:
 show-cart:
     path: /cart
     defaults: {_controller: AcmeBundleStareStoreBundle:Shop:showCart}
+
 shop:
     path: /shop
     defaults: {_controller: AcmeBundleStareStoreBundle:Shop:shop}
+
 button-cart:
     path: /button-cart
     defaults: {_controller: AcmeBundleStareStoreBundle:Shop:buttonCart}

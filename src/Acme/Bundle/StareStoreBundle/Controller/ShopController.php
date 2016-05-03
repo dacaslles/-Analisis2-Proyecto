@@ -17,6 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Acme\Bundle\StareStoreBundle\Entity\DetalleCarrito;
 use Symfony\Component\HttpFoundation\Request;
+//use soap\nusoap;
 
 /**
 * Controlador default para el bundle StareStore
@@ -32,6 +33,14 @@ class ShopController extends Controller
 
     public function showCartAction()
     {
+        if (!isset($_SESSION['id'])) {
+            return $this->render('AcmeBundleStareStoreBundle:error:force.login.html.twig');
+        }
+
+        if($_SESSION['tipo'] != 3) {
+            return $this->render('AcmeBundleStareStoreBundle:error:access.denied.html.twig');   
+        }
+
         $detalle = $this->getDoctrine()->getManager()
                     ->getRepository('AcmeBundleStareStoreBundle:DetalleCarrito')
                     ->findByIDCarrito($_SESSION['id']);
@@ -50,6 +59,11 @@ class ShopController extends Controller
      */
     public function addCartAction(Request $request)
     {
+
+        if (!isset($_SESSION['id'])) {
+            return $this->render('AcmeBundleStareStoreBundle:cart:empty.button.html.twig');
+        }
+
         $id_carrito = $_SESSION['id'];
         $id_producto = $request->request->get('id');
         $cantidad = $request->request->get('cantidad');
@@ -89,11 +103,46 @@ class ShopController extends Controller
 
     public function shopAction()
     {
+        if (!isset($_SESSION['id'])) {
+            return $this->render('AcmeBundleStareStoreBundle:error:force.login.html.twig');
+        }
+
+        if($_SESSION['tipo'] != 3) {
+            return $this->render('AcmeBundleStareStoreBundle:error:access.denied.html.twig');   
+        }
+
         $em = $this->getDoctrine()->getManager();
         $carrito = $em->getRepository('AcmeBundleStareStoreBundle:Carrito')
                     ->findOneById($_SESSION['id']);
         $detalles = $em->getRepository('AcmeBundleStareStoreBundle:DetalleCarrito')
                         ->findByIDCarrito($_SESSION['id']);
+
+        /*
+        require_once 'nusoap.php';
+        $cliente = new nusoap_client('http://localhost/credit_card_service/creditcard.php');
+        $error = $cliente->getError();
+
+        if($error) {
+            return $this->render('AcmeBundleStareStoreBundle:error:error.html.twig',
+                ['message'=>$error]);
+        }
+
+        $result = $cliente->call('confirm', array('card' => '123', 'quantity' => $carrito->getTotal()));
+
+        if($cliente->fault) {
+            return $this->render('AcmeBundleStareStoreBundle:error:error.html.twig',
+                ['message'=>$result]);   
+        } else {
+            $error = $cliente->getError();
+            if($error) {
+                return $this->render('AcmeBundleStareStoreBundle:error:error.html.twig',
+                ['message'=>$error]);
+            } else if($result == 'denied'){
+                return $this->render('AcmeBundleStareStoreBundle:error:error.html.twig',
+                ['message'=>'tarjeta no aceptada']);
+            }
+        }
+        */
 
         $em->getConnection()->beginTransaction();
         try {
@@ -113,7 +162,7 @@ class ShopController extends Controller
             $carrito->setTotal(0);
             $em->flush();
             $em->getConnection()->commit();
-            return new Response('Exito');
+            return $this->render('AcmeBundleStareStoreBundle:cart:success.html.twig');
         }catch(Exception $e) {
             $em->getConnection()->rollback();
             return new Response('algo fallo');
@@ -122,19 +171,27 @@ class ShopController extends Controller
 
     public function buttonCartAction() {
 
+        if (!isset($_SESSION['id'])) {
+            return $this->render('AcmeBundleStareStoreBundle:cart:empty.button.html.twig');
+        }
+
+
         $em = $this->getDoctrine()->getManager();
         $carrito = $em->getRepository('AcmeBundleStareStoreBundle:Carrito')
                     ->findOneById($_SESSION['id']);
 
         $total = $em->getRepository('AcmeBundleStareStoreBundle:DetalleCarrito')
                     ->createQueryBuilder('d')
-                    ->select('COUNT(d.iDProducto)')
+                    ->select('SUM(d.cantidad)')
                     ->where('d.iDCarrito = :id')
                     ->setParameter('id',$_SESSION['id'])
                     ->getQuery()
                     ->getSingleScalarResult();
 
-        return $this->render('AcmeBundleStareStoreBundle:cart:cart.button.html.twig',
+        if($total == 0)
+            return $this->render('AcmeBundleStareStoreBundle:cart:empty.button.html.twig');
+        else
+            return $this->render('AcmeBundleStareStoreBundle:cart:cart.button.html.twig',
                 ['total'=>$carrito->getTotal(),'cantidad'=>$total]);   
     }
 

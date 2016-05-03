@@ -60,8 +60,12 @@ class RegisterController extends Controller
     */
     public function showOwnerAction()
     {
-        if (!isset($_SESSION)) {
-            session_start();
+        if (!isset($_SESSION['id'])) {
+            return $this->render('AcmeBundleStareStoreBundle:error:force.login.html.twig');
+        }
+
+        if($_SESSION['tipo'] != 1) {
+            return $this->render('AcmeBundleStareStoreBundle:error:access.denied.html.twig');   
         }
 
         $_SESSION['nombre'] = 'SuperAdmin';
@@ -73,8 +77,12 @@ class RegisterController extends Controller
 
     public function showStoreAction(Request $request)
     {
-        if (!isset($_SESSION)) {
-            session_start();
+        if (!isset($_SESSION['id'])) {
+            return $this->render('AcmeBundleStareStoreBundle:error:force.login.html.twig');
+        }
+
+        if($_SESSION['tipo'] != 1) {
+            return $this->render('AcmeBundleStareStoreBundle:error:access.denied.html.twig');   
         }
 
         $_SESSION['nombre'] = 'SuperAdmin';
@@ -86,6 +94,14 @@ class RegisterController extends Controller
 
     public function showProductAction(Request $request)
     {
+        if (!isset($_SESSION['id'])) {
+            return $this->render('AcmeBundleStareStoreBundle:error:force.login.html.twig');
+        }
+
+        if($_SESSION['tipo'] != 2) {
+            return $this->render('AcmeBundleStareStoreBundle:error:access.denied.html.twig');   
+        }
+        
         $contenido = $this->renderView('AcmeBundleStareStoreBundle:register:register.product.html.twig');
         return new Response($contenido);
     }

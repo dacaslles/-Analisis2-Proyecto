@@ -35,3 +35,19 @@ function addCart(id){
       }
    });
 }
+
+function addCart2(id, precio) {
+
+   var cantidad = $("#product-quantity").val();
+   var data = {"id":id,"cantidad":cantidad,"precio":precio};
+   
+   $.ajax({
+      url: "http://localhost/Analisis2_Proyecto/web/app_dev.php/add-cart",
+      type: "POST",
+      data: data,
+      success: function(data,status,xhr){
+         alert("produto agregado");
+         $("#cart").html(data);
+      }
+   });  
+}
